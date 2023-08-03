@@ -80,12 +80,13 @@
 </Suspense>
 ```
 
-## Вилучення параметрів (хук useSearchParams)
+## Читання та зміна рядка запиту в URL-адресі (хук useSearchParams)
 [**import { useSearchParams } from 'react-router-dom';**](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 
 ```const [searchParams, setSearchParams] = useSearchParams();```
 
-**import { useParams } from 'react-router-dom';**
+## Повернення динамічних параметрів із поточної URL-адреси (хук useParams)
+[**import { useParams } from 'react-router-dom';**](https://reactrouter.com/en/main/hooks/use-params)
 
 `const { movieId } = useParams();`
 
