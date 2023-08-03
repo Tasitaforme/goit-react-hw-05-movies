@@ -1,34 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { SearchForm, SearchFormButton, SearchFormInput, SearchIcon } from './SearchMovieForm.styled';
 
-const SearchMovieForm = ({ setSearchParams, searchValue, getSearchMovies }) => {
+const SearchMovieForm = ({
+  setSearchParams,
+  searchValue,
+  responseMoviesQuery,
+}) => {
   const handleChange = ({ target: { value } }) => {
-    setSearchParams({ search: value.toLowerCase() });
+    setSearchParams({ search: value.trim().toLowerCase() });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    getSearchMovies(searchValue);
+    responseMoviesQuery(searchValue);
   };
-  
+
   return (
-    <form role="search" onSubmit={handleSubmit}>
-      <input
+    <SearchForm role="search" onSubmit={handleSubmit}>
+      <SearchFormInput
         type="search"
         placeholder="Search"
         aria-label="Search"
         value={searchValue}
         onChange={handleChange}
       />
-      <button type="submit">Search</button>
-    </form>
+      <SearchFormButton type="submit">
+        <SearchIcon />
+      </SearchFormButton>
+    </SearchForm>
   );
 };
 
 SearchMovieForm.propTypes = {
   setSearchParams: PropTypes.func.isRequired,
   searchValue: PropTypes.string.isRequired,
-  getSearchMovies: PropTypes.string.isRequired,
+  responseMoviesQuery: PropTypes.func.isRequired,
 };
 
 export default SearchMovieForm;

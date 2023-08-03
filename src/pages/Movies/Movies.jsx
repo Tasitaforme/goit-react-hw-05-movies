@@ -15,14 +15,12 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const searchValue = searchParams.get('search') ?? '';
-  console.log(searchValue);
 
   const responseWeeklyTrends = useCallback(async () => {
     setLoading(true);
     try {
       const { results } = await fetchTrendsWeek();
       setMovies(results);
-      console.log(results);
     } catch (error) {
       console.log(error.message);
     } finally {
@@ -30,19 +28,18 @@ const Movies = () => {
     }
   }, [setMovies]);
 
-  const responseMoviesQuery = async query => {
+  const responseMoviesQuery = useCallback(
+    async query => {
       setLoading(true);
       try {
         const { results } = await fetchMoviesQuery(query);
         setMovies(results);
-        console.log(results);
       } catch (error) {
-        console.log(searchValue);
         console.log(error.message);
       } finally {
         setLoading(false);
       }
-    };
+    }, [setMovies]);
 
   // очищення рядку запиту
   useEffect(() => {
@@ -52,69 +49,39 @@ const Movies = () => {
   //працюватиме на onChange
   useEffect(() => {
     searchValue && responseMoviesQuery(searchValue);
-  }, [searchValue]);
+  }, [searchValue, responseMoviesQuery]);
 
   useEffect(() => {
-    // if (searchValue || searchValue !== '') return;
-    !movies && !searchValue && responseWeeklyTrends();
-  }, [searchValue]);
+    if (searchValue || searchValue !== '' || movies) return;
+    responseWeeklyTrends();
+    // (!movies && !searchValue && responseWeeklyTrends();)
+  }, [searchValue, responseWeeklyTrends, movies]);
 
   return (
     <Container>
       <SearchMovieForm
         setSearchParams={setSearchParams}
         searchValue={searchValue}
-        getSearchMovies={responseMoviesQuery}
+        responseMoviesQuery={responseMoviesQuery}
       />
-      {!loading && <MoviesList movies={movies} title="Weekly trends" />}
+      {!loading && !searchValue && (
+        <MoviesList movies={movies} title="Weekly trends" />
+      )}
+      {searchValue && (
+        <MoviesList
+          movies={movies}
+          title={`Movies by your search "${searchValue}"`}
+        />
+      )}
+      {!loading && searchValue && movies?.length === 0 && (
+        <h3 style={{ color: 'red', marginTop: '28px', }} >
+          {' '}
+          {`Sorry... There are no movies by your search "${searchValue}"`}{' '}
+        </h3>
+      )}
       {loading && <Loader />}
     </Container>
   );
 };
 
-Movies.propTypes = {};
-
-
-
-
-// const responseWeeklyTrends = useCallback(async () => {
-//   setLoading(true);
-//   try {
-//     const { results } = await fetchTrendsWeek();
-//     setMovies(results);
-//     console.log(results);
-//   } catch (error) {
-//     console.log(error.message);
-//   } finally {
-//     setLoading(false);
-//   }
-// }, [setMovies]);
-
-// const responseMoviesQuery = async query => {
-//   setLoading(true);
-//   try {
-//     const { results } = await fetchMoviesQuery(query);
-//     setMovies(results);
-//     console.log(results);
-//   } catch (error) {
-//     console.log(searchValue);
-//     console.log(error.message);
-//   } finally {
-//     setLoading(false);
-//   }
-// };
-
-// // очищення рядку запиту
-// useEffect(() => {
-//   !searchValue && setSearchParams({});
-// }, [searchValue, setSearchParams]);
-
-// //працюватиме на onChange
-// useEffect(() => {
-//   searchValue && responseMoviesQuery(searchValue);
-// }, [searchValue]);
-
-// useEffect(() => {
-//   // if (searchValue || searchValue !== '') return;
-//   !movies && !searchValue && responseWeeklyTrends();
-// }, [searchValue]);
+export default Movies;

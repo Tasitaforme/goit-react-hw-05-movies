@@ -51,28 +51,28 @@ export const fetchMovieReviews = async movieId => {
   return response.data;
 };
 
-// export const fetchMoviesQuery = async query => {
-//   const { data } = await axios(
-//     `search/movie/?api_key=${API_KEY}&include_adult=false&query=${query}`
-//   );
-//   return data;
-// };
-
-export const fetchMoviesQuery = async (query, page = 1) => {
-  const url = `https://api.themoviedb.org/3/search/movie/`;
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YzBlNWVlMzg4NjBjODM2MGM5NzllMjcwMzBlOTEwNiIsInN1YiI6IjY0YzMwZmM2YWY2ZTk0MDBjNjg0ZDJmYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4aZ4QrtisU-50J178r_289eyGBWk4KxXLPlYlrsrLgI',
-    },
-    params: { include_adult: 'false', query: query, page: page },
-    
-  };
-  const { data } = await axios(url, options);
+export const fetchMoviesQuery = async query => {
+  const { data } = await axios(
+    `search/movie?api_key=${API_KEY}&include_adult=false&query=${query}`
+  );
   return data;
 };
+
+// export const fetchMoviesQuery = async (query, page = 1) => {
+//   const url = `https://api.themoviedb.org/3/search/movie/`;
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       accept: 'application/json',
+//       Authorization:
+//         'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YzBlNWVlMzg4NjBjODM2MGM5NzllMjcwMzBlOTEwNiIsInN1YiI6IjY0YzMwZmM2YWY2ZTk0MDBjNjg0ZDJmYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4aZ4QrtisU-50J178r_289eyGBWk4KxXLPlYlrsrLgI',
+//     },
+//     params: { include_adult: 'false', query: query, page: page },
+    
+//   };
+//   const { data } = await axios(url, options);
+//   return data;
+// };
 
 
 // export const fetchMoviesQuery = async (query, page=1) => {

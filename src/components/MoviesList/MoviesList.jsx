@@ -2,16 +2,19 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import MoviesItem from 'components/MoviesItem/MoviesItem';
-import { MoviesListLi, MoviesListTitle, MoviesListUl } from './MoviesList.styled';
+import {
+  MoviesListLi,
+  MoviesListTitle,
+  MoviesListUl,
+} from './MoviesList.styled';
 import { Link, useLocation } from 'react-router-dom';
 
-const MoviesList = ({ movies, title}) => {
+const MoviesList = ({ movies, title }) => {
   const location = useLocation();
 
   return (
     <>
       {title && <MoviesListTitle>{title}</MoviesListTitle>}
-
       <MoviesListUl>
         {movies?.map(movie => (
           <MoviesListLi key={movie.id}>
