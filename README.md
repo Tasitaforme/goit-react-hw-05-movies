@@ -71,9 +71,10 @@
 **import { lazy } from 'react';**
 
 `const Home = lazy(() => import('pages/Home/Home'));`
+
 **import { Suspense } from 'react';**
 
-```json
+```ruby
 <Suspense fallback={<Loader />}>
   <Outlet />
 </Suspense>
@@ -81,15 +82,19 @@
 
 ## Вилучення параметрів (хук useSearchParams)
 [**import { useSearchParams } from 'react-router-dom';**](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
-`const [searchParams, setSearchParams] = useSearchParams();`
+
+```const [searchParams, setSearchParams] = useSearchParams();```
+
 **import { useParams } from 'react-router-dom';**
+
 `const { movieId } = useParams();`
 
 ## Маршрутизація
 **npm i react-router-dom** 
+
 `import { BrowserRouter } from 'react-router-dom';`
 
-```json
+```ruby
 <BrowserRouter basename="/your_repo_name">
   <App />
 </BrowserRouter>
@@ -97,7 +102,7 @@
 
 `import { Route, Routes } from 'react-router-dom'`
 
-```json
+```ruby
 <Routes>
       <Route path='/' element={<SharedLayout/>}>
         <Route index element={<Home/>} />
@@ -108,40 +113,41 @@
 ```
 
 `import { Outlet } from 'react-router-dom'`
-```json
+
+```ruby
 <Outlet/>
 ```
 
 ## Повернення об’єкту розташування з поточної URL-адреси (хук location)
 `import { Link, useLocation } from 'react-router-dom';`
 
-```json
+```ruby
 const location = useLocation();
 <Link to={`/movies/${movie.id}`} state={{ from: location }}>
 ```
 
-```json
+```ruby
 const location = useLocation();
 <Link to={location.state?.from ?? '/'}/>
 ```
 
 ## HTTP-запити 
-**npm i axios**
+[**npm i axios**](https://axios-http.com/)
 
 `import axios from "axios";`
 
 ## Перевірка типів одержуваних пропсів
-**npm i prop-types**
+[**npm i prop-types**](https://www.npmjs.com/package/prop-types)
 
 `import PropTypes from 'prop-types'`
 
 ## Прелоадер
-**npm i  react-loader-spinner**
+[**npm i  react-loader-spinner**](https://mhnpd.github.io/react-loader-spinner/)
 
 `import { InfinitySpin } from 'react-loader-spinner';`
 
 ## CSS на JavaScript
-**npm i styled-components**
+[**npm i styled-components**](https://www.npmjs.com/package/styled-components)
 
 `import styled from 'styled-components';`
 
