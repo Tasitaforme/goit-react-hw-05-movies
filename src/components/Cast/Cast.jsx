@@ -32,6 +32,12 @@ const Cast = () => {
 
   return (
     <>
+      {loading && <Loader />}
+      {!loading && cast?.length === 0 && (
+        <h3 style={{ color: 'red', marginTop: '28px' }}>
+          Sorry... There is no information about the cast of this film yet.
+        </h3>
+      )}
       <CastUl>
         {cast?.map(({ id, profile_path, name, original_name, character }) => (
           <CastLi key={id}>
@@ -45,16 +51,13 @@ const Cast = () => {
               }
               alt={original_name || name}
             />
-            
-              <h3>{original_name || name}</h3>
-              <h4>Character:</h4>
-              <p>{character}</p>
-            
+
+            <h3>{original_name || name}</h3>
+            <h4>Character:</h4>
+            <p>{character}</p>
           </CastLi>
         ))}
       </CastUl>
-
-      {loading && <Loader />}
     </>
   );
 };

@@ -52,10 +52,9 @@ const Movies = () => {
   }, [searchValue, responseMoviesQuery]);
 
   useEffect(() => {
-    if (searchValue || searchValue !== '' || movies) return;
+    if (searchValue || searchValue !== '') return;
     responseWeeklyTrends();
-    // (!movies && !searchValue && responseWeeklyTrends();)
-  }, [searchValue, responseWeeklyTrends, movies]);
+  }, [searchValue, responseWeeklyTrends]);
 
   return (
     <Container>

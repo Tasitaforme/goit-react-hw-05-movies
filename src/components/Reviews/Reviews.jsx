@@ -32,6 +32,11 @@ const Reviews = () => {
 
   return (
     <>
+      {!loading && reviews?.length === 0 && (
+        <h3 style={{ color: 'red', marginTop: '28px' }}>
+          Sorry... There is no review information for this movie yet.
+        </h3>
+      )}
       <ReviewUl>
         {reviews?.map(
           ({

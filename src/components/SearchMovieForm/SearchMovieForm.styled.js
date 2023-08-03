@@ -35,9 +35,6 @@ export const SearchFormInput = styled.input`
     color: white;
     box-shadow: inset 0 -100px 0 0 #05060b;
   }
-  &:active {
-    transform: scale(0.9);
-  }
 
   &::placeholder {
     font: inherit;
@@ -46,12 +43,15 @@ export const SearchFormInput = styled.input`
 
   &::-webkit-search-cancel-button {
     /* https://stackoverflow.com/questions/20804016/editing-input-type-search-pseudo-element-button-x */
-    margin-right: 16px;
     -webkit-appearance: none;
+    margin-right: 16px;
+    margin-left: 10px;
     display: inline-block;
     width: 12px;
     height: 12px;
-    margin-left: 10px;
+    
+    padding: 2px;
+    cursor: pointer;
     background: linear-gradient(
         45deg,
         rgba(0, 0, 0, 0) 0%,

@@ -1,6 +1,3 @@
-Використовуй цей
-[шаблон React-проекту](https://github.com/goitacademy/react-homework-template#readme)
-як стартову точку своєї програми.
 
 # Критерії приймання ДЗ
 
@@ -23,6 +20,10 @@
 Створи базову маршрутизацію для застосунку пошуку і зберігання фільмів. Прев'ю
 робочого застосунку
 [дивись за посиланням](https://drive.google.com/file/d/1vR0hi3n1236Q5Bg4-se-8JVKD9UKSfId/view?usp=sharing).
+
+Використовуй цей
+[шаблон React-проекту](https://github.com/goitacademy/react-homework-template#readme)
+як стартову точку своєї програми.
 
 ## API themoviedb.org
 
@@ -157,10 +158,3 @@ const location = useLocation();
 
 `import { BsSearchHeart } from 'react-icons/bs';`
 
-
-<!-- ---
-npm install @emotion/react @emotion/styled
-
-import styled from '@emotion/styled'
-
---- -->
