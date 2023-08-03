@@ -65,26 +65,30 @@
 Додай асинхронне завантаження JS-коду для маршрутів застосунку, використовуючи
 `React.lazy()` і `Suspense`.
 
-## Бібліотеки та імпорти
+# Бібліотеки та імпорти
 
-# Динамічне імпортування модулів
+## Динамічне імпортування модулів
 **import { lazy } from 'react';**
+
 `const Home = lazy(() => import('pages/Home/Home'));`
 **import { Suspense } from 'react';**
+
 ```json
 <Suspense fallback={<Loader />}>
   <Outlet />
 </Suspense>
 ```
-# Вилучення параметрів (хук useSearchParams)
+
+## Вилучення параметрів (хук useSearchParams)
 [**import { useSearchParams } from 'react-router-dom';**](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 `const [searchParams, setSearchParams] = useSearchParams();`
 **import { useParams } from 'react-router-dom';**
 `const { movieId } = useParams();`
 
-# Маршрутизація
+## Маршрутизація
 **npm i react-router-dom** 
 `import { BrowserRouter } from 'react-router-dom';`
+
 ```json
 <BrowserRouter basename="/your_repo_name">
   <App />
@@ -92,6 +96,7 @@
 ```
 
 `import { Route, Routes } from 'react-router-dom'`
+
 ```json
 <Routes>
       <Route path='/' element={<SharedLayout/>}>
@@ -106,35 +111,43 @@
 ```json
 <Outlet/>
 ```
-# Повернення об’єкту розташування з поточної URL-адреси (хук location)
+
+## Повернення об’єкту розташування з поточної URL-адреси (хук location)
 `import { Link, useLocation } from 'react-router-dom';`
+
 ```json
 const location = useLocation();
 <Link to={`/movies/${movie.id}`} state={{ from: location }}>
 ```
+
 ```json
 const location = useLocation();
 <Link to={location.state?.from ?? '/'}/>
 ```
 
-# HTTP-запити 
+## HTTP-запити 
 **npm i axios**
+
 `import axios from "axios";`
 
-# Перевірка типів одержуваних пропсів
+## Перевірка типів одержуваних пропсів
 **npm i prop-types**
+
 `import PropTypes from 'prop-types'`
 
-# Прелоадер
+## Прелоадер
 **npm i  react-loader-spinner**
+
 `import { InfinitySpin } from 'react-loader-spinner';`
 
-# CSS на JavaScript
+## CSS на JavaScript
 **npm i styled-components**
+
 `import styled from 'styled-components';`
 
-# Іконки
+## Іконки
 [**npm i react-icons**](https://www.npmjs.com/package/react-icons)
+
 `import { BsSearchHeart } from 'react-icons/bs';`
 
 
