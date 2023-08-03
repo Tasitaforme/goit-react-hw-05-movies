@@ -61,11 +61,11 @@ const MoviesItem = ({
 
 MoviesItem.propTypes = {
   movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    name: PropTypes.string,
     poster_path: PropTypes.string,
-    release_date: PropTypes.string.isRequired,
-    first_air_date: PropTypes.string.isRequired,
+    release_date: PropTypes.string,
+    first_air_date: PropTypes.string,
   }).isRequired,
 };
 

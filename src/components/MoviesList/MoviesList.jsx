@@ -30,7 +30,7 @@ MoviesList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
     }).isRequired
-  ).isRequired,
+  ),
   title: PropTypes.string.isRequired,
 };
 

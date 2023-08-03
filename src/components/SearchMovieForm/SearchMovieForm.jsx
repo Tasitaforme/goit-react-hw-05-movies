@@ -32,28 +32,3 @@ SearchMovieForm.propTypes = {
 };
 
 export default SearchMovieForm;
-
-// const Form = ({ handleSearch, setSearchParams, searchValue, firstRender }) => {
-//   const handleChange = ({ target: { value } }) => {
-//     setSearchParams({ search: value });
-//     firstRender.current = false;
-//   };
-
-//   const handleSubmit = e => {
-//     e.preventDefault();
-//     handleSearch(searchValue);
-//   };
-
-//   return (
-//     <form role="search" onSubmit={handleSubmit}>
-//       <input
-//         type="search"
-//         placeholder="Search"
-//         aria-label="Search"
-//         onChange={handleChange}
-//         value={searchValue}
-//       />
-//       <button type="submit">Search</button>
-//     </form>
-//   );
-// };
