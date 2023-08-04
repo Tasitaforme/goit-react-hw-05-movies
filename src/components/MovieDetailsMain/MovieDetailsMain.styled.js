@@ -68,6 +68,7 @@ export const MoreInfoBtn = styled.button`
   border-radius: 4px;
   box-shadow: inset 0 0 0 0 #05060b;
 
+  a.active &,
   &:hover {
     color: white;
     box-shadow: inset 0 -100px 0 0 #05060b;

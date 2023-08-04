@@ -110,7 +110,8 @@
 <Outlet/>
 ```
 
-`import { NavLink } from "react-router-dom";`
+[`import { NavLink } from "react-router-dom";`](https://reactrouter.com/en/main/components/nav-link)
+
 ```ruby
   <>
     <NavLink to="/">Home</NavLink>
