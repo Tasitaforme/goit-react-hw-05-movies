@@ -16,7 +16,6 @@ const TodaysTrends = () => {
       try {
         const { results } = await fetchTrendsDay();
         setMovies(results);
-        console.log(results);
       } catch (error) {
         console.log(error.message);
       } finally {

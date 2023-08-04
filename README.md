@@ -81,16 +81,6 @@
 </Suspense>
 ```
 
-## Читання та зміна рядка запиту в URL-адресі (хук useSearchParams)
-[**import { useSearchParams } from 'react-router-dom';**](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
-
-```const [searchParams, setSearchParams] = useSearchParams();```
-
-## Повернення динамічних параметрів із поточної URL-адреси (хук useParams)
-[**import { useParams } from 'react-router-dom';**](https://reactrouter.com/en/main/hooks/use-params)
-
-`const { movieId } = useParams();`
-
 ## Маршрутизація
 **npm i react-router-dom** 
 
@@ -120,7 +110,24 @@
 <Outlet/>
 ```
 
-## Повернення об’єкту розташування з поточної URL-адреси (хук location)
+`import { NavLink } from "react-router-dom";`
+```ruby
+  <>
+    <NavLink to="/">Home</NavLink>
+    <NavLink to="/movies">Movies</NavLink>
+  </>
+```
+## Читання та зміна рядка запиту в URL-адресі (хук useSearchParams)
+[**import { useSearchParams } from 'react-router-dom';**](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+
+```const [searchParams, setSearchParams] = useSearchParams();```
+
+## Повернення динамічних параметрів із поточної URL-адреси (хук useParams)
+[**import { useParams } from 'react-router-dom';**](https://reactrouter.com/en/main/hooks/use-params)
+
+`const { movieId } = useParams();`
+
+## Повернення об’єкту розташування з поточної URL-адреси (хук useLocation)
 `import { Link, useLocation } from 'react-router-dom';`
 
 ```ruby
@@ -132,6 +139,16 @@ const location = useLocation();
 const location = useLocation();
 <Link to={location.state?.from ?? '/'}/>
 ```
+
+## Посилання на значення, яке не потрібно ререндерити (хук useRef)
+[**import { useRef } from 'react';**](https://react.dev/reference/react/useRef)
+
+```const locationBackRef = useRef(location.state?.from ?? '/');
+   <Link to={locationBackRef.current}>
+     <BackBtn type="button">Go back</BackBtn>
+   </Link>
+```
+
 
 ## HTTP-запити 
 [**npm i axios**](https://axios-http.com/)

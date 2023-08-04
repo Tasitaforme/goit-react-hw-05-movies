@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useEffect, useState } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
@@ -10,7 +10,8 @@ import { BackBtn } from './MovieDetails.styled';
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
-const location = useLocation();
+  const location = useLocation();
+  const locationBackRef = useRef(location.state?.from ?? '/movies');
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -18,7 +19,6 @@ const location = useLocation();
       setLoading(true);
       try {
           const data = await fetchMovieDetails(movieId);
-          console.log(data);
           setMovie(data);
       } catch (error) {
         console.log(error.message);
@@ -31,13 +31,12 @@ const location = useLocation();
 
   return (
     <Container>
-      <Link to={location.state?.from ?? '/'}>
+      <Link to={locationBackRef.current}>
         <BackBtn type="button">Go back</BackBtn>
       </Link>
       {loading && <Loader />}
       {movie && !loading && <MovieDetailsMain movie={movie} />}
 
-      
       <Outlet />
     </Container>
   );
