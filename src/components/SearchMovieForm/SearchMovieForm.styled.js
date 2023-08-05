@@ -1,14 +1,15 @@
 import styled from 'styled-components';
-import { BsSearchHeart } from 'react-icons/bs';
+// import { BsSearchHeart } from 'react-icons/bs';
+import { ImSearch } from 'react-icons/im';
 
 export const SearchForm = styled.form`
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
   max-width: 600px;
   background-color: #fff;
   border-radius: 3px;
-  overflow: hidden;
+  /*  overflow: hidden;*/
 `;
 export const SearchFormInput = styled.input`
   display: inline-block;
@@ -16,7 +17,8 @@ export const SearchFormInput = styled.input`
   font: inherit;
   font-size: 20px;
   color: #05060b;
-  margin: 16px 16px 16px 0;
+  /* margin: 16px 16px 16px 0; */
+  margin-right: 16px;
   padding: 12px 12px;
   height: 48px;
   background: transparent;
@@ -77,6 +79,8 @@ export const SearchFormButton = styled.button`
   position: relative;
   display: inline-block;
   height: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
   text-align: center;
   font-size: 18px;
   letter-spacing: 1px;
@@ -98,9 +102,9 @@ export const SearchFormButton = styled.button`
   }
 `;
 
-export const SearchIcon = styled(BsSearchHeart)`
-  width: 60px;
-  height: 28px;
+export const SearchIcon = styled(ImSearch)`
+  /* width: 60px;
+  height: 28px; */
   color: inherit;
   background-color: inherit;
   margin: 0;

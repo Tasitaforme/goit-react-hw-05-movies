@@ -11,26 +11,25 @@ export const MovieDetailsWrapper = styled.div`
   @media screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: flex-start;
-    row-gap: 28px;
     column-gap: 16px;
   }
-
-  @media screen and (min-width: 1280px) {
-    row-gap: 32px;
-    column-gap: 32px;
-  }
+  
 `;
 export const MovieDetailsInfo = styled.div`
   @media screen and (min-width: 768px) {
-    flex-grow: 1;
+    min-width: 35%;
   }
 `;
 
 export const MovieImg = styled.img`
-  max-width: 65%;
+  width: 100%;
   object-fit: cover;
   border-radius: 4px;
+
+  @media screen and (min-width: 768px) {
+    width: calc(100% - 35% - 16px);
+    max-width: 850px;
+  }
 `;
 
 export const MovieDetailsInfoUl = styled.ul`
@@ -54,7 +53,7 @@ export const MovieDetailsAbout = styled.h2`
 export const MoreInfoBtn = styled.button`
   position: relative;
   display: inline-block;
-  margin: 16px 16px 16px 0;
+  margin: 16px 8px 16px 0;
   padding: 12px 30px;
   text-align: center;
   font-size: 18px;
@@ -75,5 +74,8 @@ export const MoreInfoBtn = styled.button`
   }
   &:active {
     transform: scale(0.9);
+  }
+  @media screen and (min-width: 768px) {
+    margin: 16px 16px 16px 0;
   }
 `;

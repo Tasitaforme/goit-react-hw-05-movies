@@ -110,7 +110,7 @@
 <Outlet/>
 ```
 
-[`import { NavLink } from "react-router-dom";`](https://reactrouter.com/en/main/components/nav-link)
+[`import { Link, NavLink } from "react-router-dom";`](https://reactrouter.com/en/main/components/nav-link)
 
 ```ruby
   <>
@@ -129,7 +129,7 @@
 `const { movieId } = useParams();`
 
 ## Повернення об’єкту розташування з поточної URL-адреси (хук useLocation)
-`import { Link, useLocation } from 'react-router-dom';`
+`import { useLocation } from 'react-router-dom';`
 
 ```ruby
 const location = useLocation();
