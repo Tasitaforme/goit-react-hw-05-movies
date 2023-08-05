@@ -1,23 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SearchForm, SearchFormButton, SearchFormInput, SearchIcon } from './SearchMovieForm.styled';
+import { SearchForm, SearchFormInput } from './SearchMovieForm.styled';
 
 const SearchMovieForm = ({
   setSearchParams,
   searchValue,
   responseMoviesQuery,
+  // firstRender,
 }) => {
   const handleChange = ({ target: { value } }) => {
     setSearchParams({ search: value.trim().toLowerCase() });
+    // firstRender.current = false;
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    responseMoviesQuery(searchValue);
-  };
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   responseMoviesQuery(searchValue);
+  // };
 
   return (
-    <SearchForm role="search" onSubmit={handleSubmit}>
+    // <SearchForm role="search" onSubmit={handleSubmit}>
+    <SearchForm role="search">
       <SearchFormInput
         type="search"
         placeholder="Search"
@@ -25,9 +28,9 @@ const SearchMovieForm = ({
         value={searchValue}
         onChange={handleChange}
       />
-      <SearchFormButton type="submit">
+      {/* <SearchFormButton type="submit">
         <SearchIcon />
-      </SearchFormButton>
+      </SearchFormButton> */}
     </SearchForm>
   );
 };

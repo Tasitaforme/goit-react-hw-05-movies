@@ -1,4 +1,3 @@
-import React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchTrendsWeek, fetchMoviesQuery } from 'api/requests';
@@ -15,6 +14,7 @@ const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const searchValue = searchParams.get('search') ?? '';
+  // const firstRender = useRef(true);
 
   const responseWeeklyTrends = useCallback(async () => {
     setLoading(true);
@@ -39,7 +39,9 @@ const Movies = () => {
       } finally {
         setLoading(false);
       }
-    }, [setMovies]);
+    },
+    [setMovies]
+  );
 
   // очищення рядку запиту
   useEffect(() => {
@@ -50,6 +52,11 @@ const Movies = () => {
   useEffect(() => {
     searchValue && responseMoviesQuery(searchValue);
   }, [searchValue, responseMoviesQuery]);
+
+  // //не працюватиме на onChange
+  // useEffect(() => {
+  //   firstRender.current && searchValue && responseMoviesQuery(searchValue);
+  // }, [searchValue, responseMoviesQuery]);
 
   useEffect(() => {
     if (searchValue || searchValue !== '') return;
@@ -62,6 +69,7 @@ const Movies = () => {
         setSearchParams={setSearchParams}
         searchValue={searchValue}
         responseMoviesQuery={responseMoviesQuery}
+        // firstRender={firstRender}
       />
       {!loading && !searchValue && (
         <MoviesList movies={movies} title="Weekly trends" />
@@ -73,7 +81,7 @@ const Movies = () => {
         />
       )}
       {!loading && searchValue && movies?.length === 0 && (
-        <h3 style={{ color: 'red', marginTop: '28px', }} >
+        <h3 style={{ color: 'red', marginTop: '28px' }}>
           {' '}
           {`Sorry... There are no movies by your search "${searchValue}"`}{' '}
         </h3>

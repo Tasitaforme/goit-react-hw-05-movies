@@ -6,7 +6,7 @@ export const SearchForm = styled.form`
   display: flex;
   /* align-items: center; */
   width: 100%;
-  max-width: 600px;
+  max-width: 260px;
   background-color: #fff;
   border-radius: 3px;
   /*  overflow: hidden;*/
@@ -17,8 +17,7 @@ export const SearchFormInput = styled.input`
   font: inherit;
   font-size: 20px;
   color: #05060b;
-  /* margin: 16px 16px 16px 0; */
-  margin-right: 16px;
+  /* margin-right: 16px; */
   padding: 12px 12px;
   height: 48px;
   background: transparent;
